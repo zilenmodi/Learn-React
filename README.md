@@ -812,3 +812,305 @@
         
         export default App;
         ```
+
+# React Router Dom
+
+**createBrowserRouter:**
+
+- This is the recommended router for all React Router web projects. It uses the DOM History API
+ to update the URL and manage the history stack.
+- **`basename`** The basename of the app for situations where you can't deploy to the root of the domain, but a sub directory.
+
+```jsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import Root, { rootLoader } from "./routes/root";
+import Team, { teamLoader } from "./routes/team";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    children: [
+      {
+        path: "team",
+        element: <Team />,
+        loader: teamLoader,
+      },
+    ],
+  },
+], { basename: "/app" });
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
+```
+
+**createHashRouter:**
+
+- This router is useful if you are unable to configure your web server to direct all traffic to your React Router application. Instead of using normal URLs, it will use the hash (#) portion of the URL to manage the "application URL".
+
+```jsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+  createHashRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import Root, { rootLoader } from "./routes/root";
+import Team, { teamLoader } from "./routes/team";
+
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    children: [
+      {
+        path: "team",
+        element: <Team />,
+        loader: teamLoader,
+      },
+    ],
+  },
+], { basename: "/app" });
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
+```
+
+- **`BrowserRouter`** uses the HTML5 History API to manipulate the URL and display different views or pages in the application. It allows you to use regular URLs with path parameters, which makes the URLs more readable and SEO-friendly. However, this requires that the server is set up to handle requests for all possible URLs that may be navigated to in the client-side application.
+- **`HashRouter`** instead uses the fragment identifier of the URL (the part after the **`#`** symbol) to navigate between views. This means that the URLs will always point to the same HTML file on the server, and any changes in the URL after the **`#`** symbol will not trigger a page refresh. **`HashRouter`** is more compatible with older browsers that do not support the HTML5 History API, but the URLs may not be as readable or SEO-friendly.
+
+************createMemoryRouter:************
+
+- ************`createMemoryRouter`************ component provides a way to keep the history of the navigation in memory instead of using the browser's address bar. This can be useful when you want to test or develop a React application without having to interact with the browser.
+
+```jsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+  createMemoryRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import Root, { rootLoader } from "./routes/root";
+import Team, { teamLoader } from "./routes/team";
+
+const router = createMemoryRouter([
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    children: [
+      {
+        path: "/team",
+        element: <Team />,
+        loader: teamLoader,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
+```
+
+**Example:**
+
+```jsx
+function ErrorBoundary() {
+  let error = useRouteError();
+  console.error(error);
+  // Uncaught ReferenceError: path is not defined
+  return <div>Dang!</div>;
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    errorElement: { ErrorBoundary },
+    children: [
+      {
+        path: "products",
+        // lazy: () => import('./routes/ProductsAll'),
+        element: (
+          <React.Suspense fallback={<h1>Loading...</h1>}>
+            <AllProducts />
+          </React.Suspense>
+        ),
+        loader: productsLoader,
+
+      }, {
+        path: "products/:productId",
+        element: <Products />,
+        loader: productLoader
+      }, {
+        path: "products/:productId/edit",
+        element: <EditProducts />,
+        loader: productLoader,
+        action: putProducts
+      },
+      {
+        path: "hooks/:id",
+        element: <MyComponent />,
+        loader: productLoader,
+        action: putProducts
+      }
+    ],
+  },
+]);
+```
+
+- **action:** action is used to handle form validation or put,patch,delete method handling.
+- ****************loader:**************** loader is used to handle pre loading like fetching data.
+- **lazy:** lazy loading is used for to load component at run time.
+- **errorElement:** If element’s component is not render, than errorElement must be renderd and it’s used bubbling concept when comes to nested routing.
+- **path:** Match with url path, then render element.
+- **children:** childern is uded to define child routings.
+
+**Hooks:**
+
+1. **useActionData():**
+    - This hook provides the returned value from the previous navigation's `action`
+     result, or `undefined` if there was no submission.
+        
+        ```jsx
+        import { useActionData } from "react-router-dom";
+        
+        function SomeComponent() {
+          let actionData = useActionData();
+          // ...
+        }
+        ```
+        
+2. **useLocation():**
+    - **`useLocation()`** is a hook provided by **`react-router-dom`** that allows you to access the current location object. The location object contains information about the current URL, including the path, search parameters, and hash.
+    - This information can be used to conditionally render components, make API calls, or perform other actions based on the current URL.
+        
+        ```jsx
+        import { useLocation } from 'react-router-dom';
+        
+        function MyComponent() {
+          const location = useLocation();
+        
+          // Use the location object to render content or perform actions based on the current URL.
+          return (
+            <div>
+              <h1>Current Path: {location.pathname}</h1>
+              <p>Search: {location.search}</p>
+              <p>Hash: {location.hash}</p>
+            </div>
+          );
+        }
+        ```
+        
+    1. **useMatch():**
+        - The **`useMatch()`** hook is a hook provided by **`react-router-dom`** that allows you to check if the current URL matches a given path. This can be useful for conditionally rendering components or redirecting to a different page based on the URL.
+        
+        ```jsx
+        import { useMatch } from 'react-router-dom';
+        
+        function MyComponent() {
+          const match = useMatch('/example/:id');
+        
+          // If the current URL matches the path '/example/:id', render some content
+          if (match) {
+            return <div>Match Found!</div>;
+          } else {
+            return <div>No match found.</div>;
+          }
+        }
+        ```
+        
+    2. **useNavigate():**
+        - The **`useNavigate()`** hook is a hook provided by **`react-router-dom`** that allows you to navigate programmatically in your React app. This hook returns a **`navigate`** function that you can use to navigate to different URLs or paths within your app.
+        
+        ```jsx
+        import { useNavigate } from 'react-router-dom';
+        
+        function MyComponent() {
+          const navigate = useNavigate();
+        
+          function handleClick() {
+            navigate('/example');
+          }
+        
+          return (
+            <div>
+              <button onClick={handleClick}>Go to Example Page</button>
+            </div>
+          );
+        }
+        ```
+        
+    3. **useParams():**
+        - The **`useParams()`** hook is a hook provided by **`react-router-dom`** that allows you to access the parameters of the current URL. This can be useful for building dynamic routes and fetching data based on the parameters of the URL.
+        
+        ```jsx
+        import { useParams } from 'react-router-dom';
+        
+        function MyComponent() {
+          const { id } = useParams();
+        
+          return <div>The ID is: {id}</div>;
+        }
+        ```
+        
+    4. **useRoutes():**
+        - The **`useRoutes()`** hook is a hook provided by **`react-router-dom`** that allows you to define nested routes and render the appropriate component based on the current URL. This can be useful for building complex applications with multiple pages and sub-pages.
+        
+        ```jsx
+        import { useRoutes } from 'react-router-dom';
+        import Home from './Home';
+        import About from './About';
+        import Products from './Products';
+        
+        function MyComponent() {
+          const routes = useRoutes([
+            {
+              path: '/',
+              element: <Home />,
+            },
+            {
+              path: '/about',
+              element: <About />,
+            },
+            {
+              path: '/products',
+              element: <Products />,
+              children: [
+                {
+                  path: ':id',
+                  element: <ProductDetail />,
+                },
+              ],
+            },
+          ]);
+        
+          return <div>{routes}</div>;
+        }
+        ```
+        
+    5. **useSearchParams():**
+        - The **`useSearchParams()`** hook is a React hook provided by the **`react-router-dom`** library that allows you to access and manipulate the query parameters in the current URL.
+        - The **`searchParams`** variable contains an instance of the **`URLSearchParams`** class, which provides methods for getting, setting, and deleting search parameters.
+        
+        ```jsx
+        const myParam = searchParams.get('myParam');
+        
+        setSearchParams({ myParam: 'myValue' });
+        
+        searchParams.delete('myParam');
+        ```

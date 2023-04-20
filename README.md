@@ -984,7 +984,25 @@ const router = createBrowserRouter([
 
 **Hooks:**
 
-1. **useActionData():**
+1. **useMatch():**
+    - The **`useMatch()`** hook is a hook provided by **`react-router-dom`** that allows you to check if the current URL matches a given path. This can be useful for conditionally rendering components or redirecting to a different page based on the URL.
+    
+    ```jsx
+    import { useMatch } from 'react-router-dom';
+    
+    function MyComponent() {
+      const match = useMatch('/example/:id');
+    
+      // If the current URL matches the path '/example/:id', render some content
+      if (match) {
+        return <div>Match Found!</div>;
+      } else {
+        return <div>No match found.</div>;
+      }
+    }
+    ```
+    
+2. **useActionData():**
     - This hook provides the returned value from the previous navigation's `action`
      result, or `undefined` if there was no submission.
         
@@ -997,7 +1015,53 @@ const router = createBrowserRouter([
         }
         ```
         
-2. **useLocation():**
+3. **useNavigate():**
+    - The **`useNavigate()`** hook is a hook provided by **`react-router-dom`** that allows you to navigate programmatically in your React app. This hook returns a **`navigate`** function that you can use to navigate to different URLs or paths within your app.
+    
+    ```jsx
+    import { useNavigate } from 'react-router-dom';
+    
+    function MyComponent() {
+      const navigate = useNavigate();
+    
+      function handleClick() {
+        navigate('/example');
+      }
+    
+      return (
+        <div>
+          <button onClick={handleClick}>Go to Example Page</button>
+        </div>
+      );
+    }
+    ```
+    
+4. **useParams():**
+    - The **`useParams()`** hook is a hook provided by **`react-router-dom`** that allows you to access the parameters of the current URL. This can be useful for building dynamic routes and fetching data based on the parameters of the URL.
+    
+    ```jsx
+    import { useParams } from 'react-router-dom';
+    
+    function MyComponent() {
+      const { id } = useParams();
+    
+      return <div>The ID is: {id}</div>;
+    }
+    ```
+    
+5. **useSearchParams():**
+    - The **`useSearchParams()`** hook is a React hook provided by the **`react-router-dom`** library that allows you to access and manipulate the query parameters in the current URL.
+    - The **`searchParams`** variable contains an instance of the **`URLSearchParams`** class, which provides methods for getting, setting, and deleting search parameters.
+    
+    ```jsx
+    const myParam = searchParams.get('myParam');
+    
+    setSearchParams({ myParam: 'myValue' });
+    
+    searchParams.delete('myParam');
+    ```
+    
+6. **useLocation():**
     - **`useLocation()`** is a hook provided by **`react-router-dom`** that allows you to access the current location object. The location object contains information about the current URL, including the path, search parameters, and hash.
     - This information can be used to conditionally render components, make API calls, or perform other actions based on the current URL.
         
@@ -1018,101 +1082,37 @@ const router = createBrowserRouter([
         }
         ```
         
-    1. **useMatch():**
-        - The **`useMatch()`** hook is a hook provided by **`react-router-dom`** that allows you to check if the current URL matches a given path. This can be useful for conditionally rendering components or redirecting to a different page based on the URL.
-        
-        ```jsx
-        import { useMatch } from 'react-router-dom';
-        
-        function MyComponent() {
-          const match = useMatch('/example/:id');
-        
-          // If the current URL matches the path '/example/:id', render some content
-          if (match) {
-            return <div>Match Found!</div>;
-          } else {
-            return <div>No match found.</div>;
-          }
-        }
-        ```
-        
-    2. **useNavigate():**
-        - The **`useNavigate()`** hook is a hook provided by **`react-router-dom`** that allows you to navigate programmatically in your React app. This hook returns a **`navigate`** function that you can use to navigate to different URLs or paths within your app.
-        
-        ```jsx
-        import { useNavigate } from 'react-router-dom';
-        
-        function MyComponent() {
-          const navigate = useNavigate();
-        
-          function handleClick() {
-            navigate('/example');
-          }
-        
-          return (
-            <div>
-              <button onClick={handleClick}>Go to Example Page</button>
-            </div>
-          );
-        }
-        ```
-        
-    3. **useParams():**
-        - The **`useParams()`** hook is a hook provided by **`react-router-dom`** that allows you to access the parameters of the current URL. This can be useful for building dynamic routes and fetching data based on the parameters of the URL.
-        
-        ```jsx
-        import { useParams } from 'react-router-dom';
-        
-        function MyComponent() {
-          const { id } = useParams();
-        
-          return <div>The ID is: {id}</div>;
-        }
-        ```
-        
-    4. **useRoutes():**
-        - The **`useRoutes()`** hook is a hook provided by **`react-router-dom`** that allows you to define nested routes and render the appropriate component based on the current URL. This can be useful for building complex applications with multiple pages and sub-pages.
-        
-        ```jsx
-        import { useRoutes } from 'react-router-dom';
-        import Home from './Home';
-        import About from './About';
-        import Products from './Products';
-        
-        function MyComponent() {
-          const routes = useRoutes([
+7. **useRoutes():**
+    - The **`useRoutes()`** hook is a hook provided by **`react-router-dom`** that allows you to define nested routes and render the appropriate component based on the current URL. This can be useful for building complex applications with multiple pages and sub-pages.
+    
+    ```jsx
+    import { useRoutes } from 'react-router-dom';
+    import Home from './Home';
+    import About from './About';
+    import Products from './Products';
+    
+    function MyComponent() {
+      const routes = useRoutes([
+        {
+          path: '/',
+          element: <Home />,
+        },
+        {
+          path: '/about',
+          element: <About />,
+        },
+        {
+          path: '/products',
+          element: <Products />,
+          children: [
             {
-              path: '/',
-              element: <Home />,
+              path: ':id',
+              element: <ProductDetail />,
             },
-            {
-              path: '/about',
-              element: <About />,
-            },
-            {
-              path: '/products',
-              element: <Products />,
-              children: [
-                {
-                  path: ':id',
-                  element: <ProductDetail />,
-                },
-              ],
-            },
-          ]);
-        
-          return <div>{routes}</div>;
-        }
-        ```
-        
-    5. **useSearchParams():**
-        - The **`useSearchParams()`** hook is a React hook provided by the **`react-router-dom`** library that allows you to access and manipulate the query parameters in the current URL.
-        - The **`searchParams`** variable contains an instance of the **`URLSearchParams`** class, which provides methods for getting, setting, and deleting search parameters.
-        
-        ```jsx
-        const myParam = searchParams.get('myParam');
-        
-        setSearchParams({ myParam: 'myValue' });
-        
-        searchParams.delete('myParam');
-        ```
+          ],
+        },
+      ]);
+    
+      return <div>{routes}</div>;
+    }
+    ```

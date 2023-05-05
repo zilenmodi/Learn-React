@@ -6,6 +6,9 @@ import PostsList from "./features/posts/PostsList";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./features/navbar/Navbar";
+import Post from "./features/Post/Post";
+import EditPost from "./features/Post/EditPost";
+import { fetchPosts } from "./features/posts/postsSlice";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +25,26 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/posts/:id",
+        element: <Post />,
+        errorElement: (
+          <>
+            <h1>Error</h1>
+          </>
+        ),
+      },
+      {
         path: "/posts/add",
         element: <AddPostForm />,
+        errorElement: (
+          <>
+            <h1>Error</h1>
+          </>
+        ),
+      },
+      {
+        path: "/posts/edit/:id",
+        element: <EditPost />,
         errorElement: (
           <>
             <h1>Error</h1>
@@ -33,6 +54,8 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+store.dispatch(fetchPosts());
 
 function App() {
   return (

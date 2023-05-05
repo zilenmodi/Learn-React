@@ -1,13 +1,16 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav
+        className="navbar navbar-expand-lg bg-dark mb-4"
+        data-bs-theme="dark"
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            React-Redux
           </a>
           <button
             className="navbar-toggler"
@@ -23,18 +26,14 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/posts"
-                >
+                <Link className="nav-link active" to={"/posts"}>
                   Posts
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/posts/add">
+                <Link className="nav-link active" to={"/posts/add"}>
                   Add Post
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

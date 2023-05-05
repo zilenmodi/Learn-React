@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, nanoid } from "@reduxjs/toolkit";
 import axios from "axios";
+import { deletePost } from "../Post/postSlice";
 
 const initialState = {
   posts: [],
@@ -58,7 +59,6 @@ const postsSlice = createSlice({
       if (existingPost) {
         existingPost.reactions[reaction]++;
       }
-      console.log(postId, reaction);
     },
   },
   extraReducers: (builder) => {

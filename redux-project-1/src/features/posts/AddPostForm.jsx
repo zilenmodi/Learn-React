@@ -2,9 +2,11 @@ import { nanoid } from "@reduxjs/toolkit";
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { setPost } from "./postsSlice";
 
 const AddPostForm = () => {
+  const navigate = useNavigate();
   const disptach = useDispatch();
   const [data, setData] = useState({
     id: "",
@@ -18,6 +20,14 @@ const AddPostForm = () => {
         setPost({
           title: data.title,
           body: data.content,
+          id: nanoid(),
+          reactions: {
+            thumbsUp: 0,
+            wow: 0,
+            heart: 0,
+            rocket: 0,
+            coffee: 0,
+          },
         })
       ).unwrap();
       setData({
@@ -25,6 +35,7 @@ const AddPostForm = () => {
         title: "",
         content: "",
       });
+      navigate("/posts");
     }
   };
   return (

@@ -8,7 +8,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./features/navbar/Navbar";
 import Post from "./features/Post/Post";
 import EditPost from "./features/Post/EditPost";
-import { fetchPosts } from "./features/posts/postsSlice";
 
 const router = createBrowserRouter([
   {
@@ -54,8 +53,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
-store.dispatch(fetchPosts());
 
 function App() {
   return (

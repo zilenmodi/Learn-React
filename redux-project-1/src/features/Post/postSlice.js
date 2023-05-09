@@ -13,9 +13,7 @@ const initialState = {
 
 export const fetchPost = createAsyncThunk("post/fetchPost", async (id) => {
   try {
-    const response = await axios.get(
-      `https://jsonplaceholder.typicode.com/posts/${id}`
-    );
+    const response = await axios.get(`http://localhost:3500/posts/${id}`);
     return response.data;
   } catch (error) {
     return error.message;
@@ -24,13 +22,14 @@ export const fetchPost = createAsyncThunk("post/fetchPost", async (id) => {
 
 export const updatePost = createAsyncThunk(
   "post/updatePost",
-  async ({ data, navigate }) => {
+  async ({ data, navigate, navigateURL }) => {
     try {
+      console.log(navigateURL);
       const response = await axios.put(
-        `https://jsonplaceholder.typicode.com/posts/${data.id}`,
+        `http://localhost:3500/posts/${data.id}`,
         data
       );
-      navigate(`/posts/${data.id}`);
+      navigate(`/${navigateURL}`);
       return response.data;
     } catch (error) {
       return error.message;
@@ -42,9 +41,7 @@ export const deletePost = createAsyncThunk(
   "post/deletePost",
   async ({ id, navigate }) => {
     try {
-      const response = await axios.delete(
-        `https://jsonplaceholder.typicode.com/posts/${id}`
-      );
+      const response = await axios.delete(`http://localhost:3500/posts/${id}`);
       navigate("/posts");
       return response.data;
     } catch (error) {

@@ -29,6 +29,23 @@ const Post = () => {
       <article key={post.id} className="card p-4 w-75 w-md-25 mx-auto">
         <h3>{post.title.substring(0, 15)}</h3>
         <p>{post.body.substring(0, 40)}</p>
+        <div className="d-flex gap-2 mb-4">
+          <span className="badge rounded-pill bg-dark p-2 p-cursor">
+            👍 {post.reactions.thumbsUp}
+          </span>
+          <span className="badge rounded-pill bg-dark p-2 p-cursor">
+            🤯 {post.reactions.wow}
+          </span>
+          <span className="badge rounded-pill bg-dark p-2 p-cursor">
+            ❤ {post.reactions.heart}
+          </span>
+          <span className="badge rounded-pill bg-dark p-2 p-cursor">
+            🚀 {post.reactions.rocket}
+          </span>
+          <span className="badge rounded-pill bg-dark p-2 p-cursor">
+            ☕ {post.reactions.coffee}
+          </span>
+        </div>
         <div className="d-flex gap-3">
           <button
             type="button"

@@ -1,23 +1,44 @@
 import { useDispatch, useSelector } from "react-redux";
-import React from "react";
+import React, { useState } from "react";
 import { fetchPosts, reactionAdded } from "./postsSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { updatePost } from "../Post/postSlice";
 
 const PostsList = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [changed, setChanged] = useState(false);
   const posts = useSelector((state) => state.posts.posts);
   const error = useSelector((state) => state.posts.error);
   const status = useSelector((state) => state.posts.status);
-  const dispatch = useDispatch();
 
   const onReactionClicked = (reaction, postId) => {
-    dispatch(reactionAdded({ reaction, postId }));
+    const existingPost = posts.find((post) => post.id == postId);
+    dispatch(
+      updatePost({
+        data: {
+          ...existingPost,
+          reactions: {
+            ...existingPost.reactions,
+            [reaction]: existingPost.reactions[reaction] + 1,
+          },
+        },
+        navigateURL: "posts",
+        navigate,
+      })
+    );
+    setChanged(true);
   };
 
-  if (status === "idle" || status === "pending") {
-    return <h1>Loading</h1>;
-  }
+  useEffect(() => {
+    dispatch(fetchPosts());
+    setChanged(false);
+  }, [changed]);
+
+  // if (status === "idle" || status === "pending") {
+  //   return <h1>Loading</h1>;
+  // }
 
   if (error) {
     return <h1>Error: {error}</h1>;

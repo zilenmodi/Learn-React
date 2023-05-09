@@ -10,7 +10,6 @@ const EditPost = () => {
   const disptach = useDispatch();
   const post = useSelector((state) => state.post.post);
   const [data, setData] = useState({
-    id: post.id,
     title: post.title,
     body: post.body,
   });
@@ -18,11 +17,16 @@ const EditPost = () => {
     e.preventDefault();
     if (data.title.length && data.body.length) {
       setData({
-        id: "",
         title: "",
         body: "",
       });
-      disptach(updatePost({ data, navigate }));
+      disptach(
+        updatePost({
+          navigate,
+          navigateURL: `posts/${post.id}`,
+          data: { ...post, title: data.title, body: data.body },
+        })
+      );
     }
   };
   return (

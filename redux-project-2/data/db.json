@@ -1,0 +1,285 @@
+{
+  "posts": [
+    {
+      "title": "Dolorem nesciunt ex",
+      "body": "Blanditiis vero arch",
+      "id": "71Sp_YaqnzWTgPKNiZCXF",
+      "reactions": {
+        "thumbsUp": 6,
+        "wow": 3,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      }
+    },
+    {
+      "title": "Et quos sed dolor ap",
+      "body": "In quis laboris cons",
+      "id": "IyTdTZtRNoLUJelbdlG14",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      }
+    },
+    {
+      "title": "Quos obcaecati repre",
+      "body": "Id harum ut iure et",
+      "id": "q_f1n_fz0CJqAn6C9KKdG",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      }
+    },
+    {
+      "title": "Eu delectus magnam ",
+      "body": "Veritatis maiores do",
+      "id": "-vFSWof80BVtVUPPaVzSg",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      }
+    },
+    {
+      "title": "Soluta facilis nisi ",
+      "body": "Autem dolores nihil ",
+      "id": "DMb9KElrPdA1aPMC1DsNq",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      }
+    },
+    {
+      "title": "Magni omnis ut nulla",
+      "body": "Minim minus at eum e",
+      "id": "6xAAugORBdO4VpCggP_CI",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      }
+    }
+  ],
+  "users": [
+    {
+      "name": "Tanner Pickett",
+      "username": "zilipi",
+      "email": "keseneje@mailinator.com",
+      "address": {
+        "street": "Ut vel quibusdam aut",
+        "suite": "Aut ea asperiores vi",
+        "city": "Rerum sint aut in ip",
+        "zipcode": "34075",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "51",
+      "website": "https://www.jazylyzujiwigi.co.uk",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "0Ajc17KaGsViS0-_yT_AU"
+    },
+    {
+      "name": "Bethany Black",
+      "username": "kelihyk",
+      "email": "bytogudoc@mailinator.com",
+      "address": {
+        "street": "Voluptas minima exce",
+        "suite": "Omnis accusamus volu",
+        "city": "Et facere vero velit",
+        "zipcode": "38157",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "43",
+      "website": "https://www.zyhejawumizawa.org.uk",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "lXREFiwIdb9LkNMD71i5s"
+    },
+    {
+      "name": "Juliet Bass",
+      "username": "wybypadu",
+      "email": "hyhiti@mailinator.com",
+      "address": {
+        "street": "A quia impedit aliq",
+        "suite": "Ipsam est dolore quo",
+        "city": "Doloribus amet unde",
+        "zipcode": "65629",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "81",
+      "website": "https://www.riritoluta.in",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "92P26U4mD8CAHP1-aBD7y"
+    },
+    {
+      "name": "Deborah Bell",
+      "username": "wemuryhex",
+      "email": "besilusev@mailinator.com",
+      "address": {
+        "street": "Ad ut quos reiciendi",
+        "suite": "Ipsum soluta fugiat",
+        "city": "Esse quaerat volupta",
+        "zipcode": "26592",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "18",
+      "website": "https://www.qaneqimysucud.in",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "QOwirLKOV2Z8E_z4IiMf4"
+    },
+    {
+      "name": "Sybil Barnett",
+      "username": "poheqatid",
+      "email": "zuleb@mailinator.com",
+      "address": {
+        "street": "Architecto cumque as",
+        "suite": "Perferendis deleniti",
+        "city": "Libero voluptatem bl",
+        "zipcode": "70287",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "48",
+      "website": "https://www.faguqegejyqoba.org.au",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "6_IOywvU4Uz4dsFBmP3y-"
+    },
+    {
+      "name": "Wyatt Snider",
+      "username": "qucypepeji",
+      "email": "wagiz@mailinator.com",
+      "address": {
+        "street": "Rem sint et est fu",
+        "suite": "Eveniet ad sit exc",
+        "city": "Quia sint incididun",
+        "zipcode": "15746",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "18",
+      "website": "https://www.pipapisa.biz",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "PGJfyJRA_MS-a0c9CBhXn"
+    },
+    {
+      "name": "Travis Sears",
+      "username": "riripah",
+      "email": "rytalicy@mailinator.com",
+      "address": {
+        "street": "Quia eiusmod rerum d",
+        "suite": "Odio qui ipsum vel s",
+        "city": "Consequatur aut inve",
+        "zipcode": "74653",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "83",
+      "website": "https://www.litan.me.uk",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "NGiuJBEoz5vdqBATY3vAG"
+    },
+    {
+      "name": "Dolan Lee",
+      "username": "bivajim",
+      "email": "sezyqyr@mailinator.com",
+      "address": {
+        "street": "Nihil velit qui rer",
+        "suite": "Repellendus Ex volu",
+        "city": "Et labore facilis ip",
+        "zipcode": "55110",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "40",
+      "website": "https://www.dyhupo.org.au",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "TPKa1Jk4uQCx-8NyCa9jj"
+    },
+    {
+      "name": "Aurelia Love",
+      "username": "zovabo",
+      "email": "mukyfepeda@mailinator.com",
+      "address": {
+        "street": "Voluptates incididun",
+        "suite": "Modi qui architecto ",
+        "city": "Ipsum consectetur m",
+        "zipcode": "80561",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "58",
+      "website": "https://www.nigijytuqotit.in",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "R2-_MTOYrcOhFPtehKjjJ"
+    }
+  ]
+}

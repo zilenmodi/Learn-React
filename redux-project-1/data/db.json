@@ -2,32 +2,6 @@
   "posts": [
     {
       "userId": 1,
-      "id": 2,
-      "title": "Consequatur molesti",
-      "body": "Accusantium quidem n",
-      "reactions": {
-        "thumbsUp": 5,
-        "wow": 0,
-        "heart": 4,
-        "rocket": 0,
-        "coffee": 0
-      }
-    },
-    {
-      "userId": 1,
-      "id": 4,
-      "title": "eum et est occaecati",
-      "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      }
-    },
-    {
-      "userId": 1,
       "id": 7,
       "title": "magnam facilis autem",
       "body": "dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas",
@@ -35,8 +9,8 @@
         "thumbsUp": 0,
         "wow": 0,
         "heart": 0,
-        "rocket": 0,
-        "coffee": 0
+        "rocket": 5,
+        "coffee": 7
       }
     },
     {
@@ -79,8 +53,8 @@
       }
     },
     {
-      "title": "Eum ullam at libero ",
-      "body": "Inventore neque vita",
+      "title": "Quo accusamus except",
+      "body": "Et tenetur aliqua A",
       "id": "-mCRppmxUVSXAq7hUgQx7",
       "reactions": {
         "thumbsUp": 0,
@@ -100,6 +74,30 @@
         "heart": 1,
         "rocket": 1,
         "coffee": 1
+      }
+    },
+    {
+      "title": "Qui est officia qua",
+      "body": "Ratione tempora qui ",
+      "id": "Q9ATcLJiLV2VhVk2LVy6e",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      }
+    },
+    {
+      "title": "Labore tenetur et do",
+      "body": "Id hic nihil et vol",
+      "id": "tYauYEwOSMZiRZ3DemEa0",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
       }
     }
   ],

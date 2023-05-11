@@ -55,6 +55,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  console.log(import.meta.env.VITE_APP_MODE);
   return (
     <>
       <Provider store={store}>

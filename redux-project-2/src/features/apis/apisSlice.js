@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { userSetAll } from "../users/usersSlice";
 
 export const api = createApi({
   reducerPath: "usersApi",
@@ -7,9 +6,6 @@ export const api = createApi({
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: () => `users`,
-      transformResponse: (responseData) => {
-        return userSetAll(responseData);
-      },
     }),
   }),
 });

@@ -1,0 +1,37 @@
+.chat-area {
+  background-color: deepskyblue;
+  height: 700px;
+  width: 30%;
+}
+
+.chat-input-area {
+  width: 100%;
+}
+
+.input-message-text {
+  background-color: aliceblue;
+  border: none;
+  padding: 0.6rem 1.4rem;
+}
+
+.input-send-btn {
+  border: none;
+  padding: 0.6rem 1.4rem;
+}
+
+.chat-message-box {
+  background-color: aliceblue;
+  padding: 0.4rem;
+  display: flex;
+  margin: 1rem;
+}
+
+.chat-message-box p {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .chat-area {
+    width: 80%;
+  }
+}

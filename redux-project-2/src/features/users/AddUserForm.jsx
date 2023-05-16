@@ -3,59 +3,59 @@ import { nanoid } from "@reduxjs/toolkit";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// import { setUser, usersAddOne } from "./usersSlice";
+import { setUser, usersAddOne } from "./usersSlice";
 
 const AddUserForm = () => {
   const navigate = useNavigate();
   const disptach = useDispatch();
-  // const [userData, setUserData] = useState({
-  //   name: "",
-  //   username: "",
-  //   email: "",
-  //   address: {
-  //     street: "",
-  //     suite: "",
-  //     city: "",
-  //     zipcode: "",
-  //     geo: {
-  //       lat: "",
-  //       lng: "",
-  //     },
-  //   },
-  //   phone: "",
-  //   website: "",
-  //   company: {
-  //     name: "",
-  //     catchPhrase: "",
-  //     bs: "",
-  //   },
-  // });
+  const [userData, setUserData] = useState({
+    name: "",
+    username: "",
+    email: "",
+    address: {
+      street: "",
+      suite: "",
+      city: "",
+      zipcode: "",
+      geo: {
+        lat: "",
+        lng: "",
+      },
+    },
+    phone: "",
+    website: "",
+    company: {
+      name: "",
+      catchPhrase: "",
+      bs: "",
+    },
+  });
 
-  // const updateData = (e) => {
-  //   const { id, value } = e.target;
-  //   if (
-  //     id === "street" ||
-  //     id === "suite" ||
-  //     id === "city" ||
-  //     id === "zipcode"
-  //   ) {
-  //     setUserData({
-  //       ...userData,
-  //       address: { ...userData.address, [id]: value },
-  //     });
-  //   } else {
-  //     setUserData({ ...userData, [id]: value });
-  //   }
-  // };
+  const updateData = (e) => {
+    const { id, value } = e.target;
+    if (
+      id === "street" ||
+      id === "suite" ||
+      id === "city" ||
+      id === "zipcode"
+    ) {
+      setUserData({
+        ...userData,
+        address: { ...userData.address, [id]: value },
+      });
+    } else {
+      setUserData({ ...userData, [id]: value });
+    }
+  };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   disptach(setUser({ ...userData, id: nanoid() }, navigate));
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    disptach(setUser({ ...userData, id: nanoid() }, navigate));
+  };
 
   return (
     <>
-      {/* <section className="container text-bg-dark p-5 mb-2">
+      <section className="container text-bg-dark p-5 mb-2">
         <h3 className="mb-4">Add new Users</h3>
         <form className="form">
           <div className="row">
@@ -176,7 +176,7 @@ const AddUserForm = () => {
             Submit
           </button>
         </form>
-      </section> */}
+      </section>
     </>
   );
 };

@@ -1,26 +1,30 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { deleteUser } from "../users/usersSlice";
+import { fetchUser } from "./userSlice";
 
 const User = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // // const user = useSelector((state) => state.user.entities);
-  // useEffect(() => {
-  //   dispatch(fetchUser(id));
-  // }, [dispatch]);
-  // if (!user[id]) {
-  //   return <h1>Loading...</h1>;
-  // }
+  const user = useSelector((state) => state.user.entities);
 
-  // const handleDeleteBtn = () => {
-  //   dispatch(deleteUser(id, navigate));
-  // };
+  useEffect(() => {
+    dispatch(fetchUser(id));
+  }, [dispatch]);
+  if (!user[id]) {
+    return <h1>Loading...</h1>;
+  }
+
+  const handleDeleteBtn = () => {
+    dispatch(deleteUser(id, navigate));
+  };
 
   return (
     <>
-      {/* <article key={id} className="card p-4 w-75 w-md-50 mx-auto">
+      <article key={id} className="card p-4 w-75 w-md-50 mx-auto">
         <h3>Name: {user[id].name}</h3>
         <p>Username: {user[id].username}</p>
         <p>Email: {user[id].email}</p>
@@ -43,7 +47,7 @@ const User = () => {
             Delete
           </button>
         </div>
-      </article> */}
+      </article>
     </>
   );
 };

@@ -1,5 +1,7 @@
 import { nanoid } from "@reduxjs/toolkit";
 import React from "react";
+import { useRef } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +9,7 @@ import { setPost } from "./postsSlice";
 
 const AddPostForm = () => {
   const navigate = useNavigate();
+  const inputRef = useRef(null);
   const disptach = useDispatch();
   const [data, setData] = useState({
     id: "",
@@ -38,6 +41,11 @@ const AddPostForm = () => {
       navigate("/posts");
     }
   };
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <>
       <section className="container text-bg-dark p-5 mb-2">
@@ -46,6 +54,7 @@ const AddPostForm = () => {
           <div className="mb-3">
             <label className="form-label">Title</label>
             <input
+              ref={inputRef}
               type="text"
               className="form-control"
               id="title"

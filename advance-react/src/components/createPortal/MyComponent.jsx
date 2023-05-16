@@ -1,5 +1,5 @@
-import React from 'react'
-import { createPortal } from 'react-dom';
+import React from "react";
+import { createPortal } from "react-dom";
 
 /*
 
@@ -11,15 +11,15 @@ use -> Open modal in different area.
 
  */
 const MyComponent = () => {
-    return (
-        <div style={{ border: '2px solid black' }}>
-            <p>This child is placed in the parent div.</p>
-            {createPortal(
-                <p>This child is placed in the document body.</p>,
-                document.body
-            )}
-        </div>
-    )
-}
+  return (
+    <div style={{ border: "2px solid black" }}>
+      <p>This child is placed in the parent div.</p>
+      {createPortal(
+        <p>This child is placed in the document body.</p>,
+        document.body
+      )}
+    </div>
+  );
+};
 
-export default MyComponent
+export default MyComponent;

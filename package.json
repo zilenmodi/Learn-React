@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "create-vite": "^4.2.0"
+    "create-vite": "^4.2.0",
+    "mobx": "^6.9.0"
   }
 }
